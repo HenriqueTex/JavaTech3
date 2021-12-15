@@ -1,0 +1,46 @@
+﻿@model JavaTech3.ViewModels.ShippingViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>ShippingViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.EntryDate" class="control-label"></label>
+                <input asp-for="@Model.EntryDate" id="input-entrydate" class="form-control" />
+                <span asp-validation-for="@Model.EntryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.User_id" class="control-label"></label>
+                <input asp-for="@Model.User_id" class="form-control" />
+                <span asp-validation-for="@Model.User_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Image" class="control-label"></label>
+                <input asp-for="@Model.Image" class="form-control" />
+                <span asp-validation-for="@Model.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
