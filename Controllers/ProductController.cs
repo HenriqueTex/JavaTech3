@@ -2,6 +2,7 @@
 
 using JavaTech3.Data;
 using JavaTech3.Models;
+using JavaTech3.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -38,7 +39,7 @@ namespace JavaTech3.Controllers
         }
         public IActionResult List()
         {
-            IEnumerable<Product> objlist = _db.Products;
+            VMProduct objlist = new VMProduct(_db);
             return View(objlist);
         }
         public IActionResult Delete(Product obj)
@@ -73,6 +74,11 @@ namespace JavaTech3.Controllers
             _db.SaveChanges();
 
             return RedirectToAction("List");
+        }
+        public IActionResult AddProductUser()
+        {
+         
+            return View();
         }
     }
 }

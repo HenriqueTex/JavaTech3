@@ -11,7 +11,6 @@
         <tr>
             <th>Name</th>
             <th>Quantity</th>
-
         </tr>
         @foreach (var item in Model.ShippingProducts)
         {
@@ -32,13 +31,12 @@
                 }
             </select>
         </td>
-
         <td contenteditable="true">
             <input id="Text2" type="text" asp-for="@Model.Quantity" />
             <br /><span asp-validation-for="@Model.Quantity" class="text-danger"></span>
         </td>
         <td contenteditable="true">
-            <input hidden id="Text2" type="text" asp-for="@Model.Shipping_id" />
+            <input hidden id="Text3" type="text" asp-for="@Model.Shipping_id" />
             <br /><span asp-validation-for="@Model.Shipping_id" class="text-danger"></span>
         </td>
     </tr>

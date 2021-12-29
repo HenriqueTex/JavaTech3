@@ -4,14 +4,16 @@ using JavaTech3.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JavaTech3.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211224154745_Adicionando productUser")]
+    partial class AdicionandoproductUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -336,7 +338,7 @@ namespace JavaTech3.Data.Migrations
             modelBuilder.Entity("JavaTech3.Models.Product_User", b =>
                 {
                     b.HasOne("JavaTech3.Models.Product", "Product")
-                        .WithMany("Product_Users")
+                        .WithMany()
                         .HasForeignKey("ProductId");
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
@@ -425,8 +427,6 @@ namespace JavaTech3.Data.Migrations
 
             modelBuilder.Entity("JavaTech3.Models.Product", b =>
                 {
-                    b.Navigation("Product_Users");
-
                     b.Navigation("ShippingProduct");
                 });
 #pragma warning restore 612, 618

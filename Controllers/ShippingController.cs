@@ -32,10 +32,7 @@ namespace JavaTech3.Controllers
         }
         public IActionResult ProductCreate(Shipping obj )
         {
-            if (obj.Id == null)
-            {
-                return NotFound();
-            }
+            
             ShippingViewModel shippingVM = new ShippingViewModel();
             shippingVM.ShippingProducts = _db.shippingProducts.Where(s=>s.Id_remessa==obj.Id).ToList();
             shippingVM.Products = _db.Products.ToList();
@@ -109,6 +106,24 @@ namespace JavaTech3.Controllers
 
             
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            
+            ShippingViewModel shippingVM = new ShippingViewModel();
+            shippingVM.ShippingProducts = _db.shippingProducts.Where(s => s.Id_remessa == id).ToList();
+            shippingVM.Products = _db.Products.ToList();
+            shippingVM.Shipping_id = id ?? 0;
+            shippingVM.Product = _db.Products.FirstOrDefault(s => s.Id == id);
+
+
+
+            return View(shippingVM);
         }
 
     }

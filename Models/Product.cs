@@ -12,6 +12,7 @@ namespace JavaTech3.Models
         {
             this.Shipping = new HashSet<Shipping>();
             this.ShippingProduct = new HashSet<ShippingProduct>();
+            this.Product_Users = new HashSet<Product_User>();
         }
 
         [Key]
@@ -22,5 +23,6 @@ namespace JavaTech3.Models
 
         public virtual ICollection<Shipping> Shipping { get; set; }
         public virtual ICollection<ShippingProduct> ShippingProduct { get; set; }
+        public virtual ICollection<Product_User> Product_Users { get; set; }
     }
 }

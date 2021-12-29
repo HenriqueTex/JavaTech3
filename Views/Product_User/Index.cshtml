@@ -1,4 +1,7 @@
-﻿@model JavaTech3.ViewModels.VMProduct
+﻿@model JavaTech3.ViewModels.VMProductUser
+
+
+
 
 @{
     ViewData["Title"] = "List";
@@ -10,15 +13,17 @@
     <a asp-action="Create">Create New</a>
 </p>
 <div class="row">
-    @foreach (var item in Model.Products)
+    @foreach (var item in Model.ProductsUsers)
     {
         <div class="col-sm-6">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src=".../100px180/" alt="Imagem de capa do card">
                 <div class="card-body">
-                    <h5 class="card-title">@item.Name</h5>
+                    <h5 class="card-title">@item.Product.Name</h5>
                     <p class="card-text">Quantidade @item.Quantity</p>
-                    <a asp-controller="Product_User" asp-action="Create" asp-route-id="@item.Id" >Distribute</a>
+                    <input type="number" class="form-control col-sm-6" id="input1" placeholder="enter amount">
+                    <a asp-controller="Product_User" asp-action="Create" asp-route-id="@item.Id">Distribute</a>
+                    
                 </div>
             </div>
         </div>
@@ -28,6 +33,4 @@
 
 
 
-
-
-
+    

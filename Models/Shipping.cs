@@ -10,8 +10,7 @@ namespace JavaTech3.Models
     {
         public Shipping()
         {
-            this.Product = new HashSet<Product>();
-            
+            this.Product = new HashSet<Product>();           
         }
         [Key]
         public int Id { get; set; }
