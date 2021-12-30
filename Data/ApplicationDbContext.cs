@@ -18,5 +18,6 @@ namespace JavaTech3.Data
         public DbSet<Shipping> Shippings { get; set; }
         public DbSet<ShippingProduct> shippingProducts { get; set; }
         public DbSet<Product_User> Product_Users { get; set; }
+        public DbSet<Whitdrawal> Whitdrawals { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model JavaTech3.ViewModels.VMProductUser
+﻿@model JavaTech3.ViewModels.VMProductUserList
 
 
 
@@ -9,28 +9,33 @@
 
 <h1>List</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
+
+
 <div class="row">
+
     @foreach (var item in Model.ProductsUsers)
     {
         <div class="col-sm-6">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src=".../100px180/" alt="Imagem de capa do card">
-                <div class="card-body">
-                    <h5 class="card-title">@item.Product.Name</h5>
-                    <p class="card-text">Quantidade @item.Quantity</p>
-                    <input type="number" class="form-control col-sm-6" id="input1" placeholder="enter amount">
-                    <a asp-controller="Product_User" asp-action="Create" asp-route-id="@item.Id">Distribute</a>
-                    
-                </div>
+                <form asp-action="Whitdrawal">
+                    <img class="card-img-top" src=".../100px180/" alt="Imagem de capa do card">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Product_.Name</h5>
+                        <p class="card-text">Quantidade @item.Quantity</p>
+                        <input type="number" asp-for="@Model.Quantity." class="form-control col-sm-6"placeholder="Quantity">
+                        <input type="hidden" asp-for="@Model.User_id." class="form-control col-sm-6" >
+                        <input type="hidden" asp-for="@Model.ProductUser_id" value="@item.Id" class="form-control col-sm-6" >
+                        <button type="submit" class="btn btn-primary">Whithdrawal</button>
+
+                    </div>
+                </form>
             </div>
         </div>
     }
+
 </div>
 
 
 
 
-    

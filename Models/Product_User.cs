@@ -11,13 +11,16 @@ namespace JavaTech3.Models
     public class Product_User
     {
         
-
+        public Product_User()
+        {
+            this.Product_ = new Product();
+        }
         [Key]
         public int? Id { get; set; }
         public string Id_user { get; set; }
         public int? Id_product { get; set; }
         public int? Quantity { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual Product Product_ { get; set; }
         public virtual IdentityUser User { get; set; }
     }
 }
